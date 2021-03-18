@@ -35,7 +35,7 @@ module.exports = {
 
 } //exports
 
-// NEED TO SPECIFY WHICH CONFIG WHEN RUNNING KNEX COMMANDS
+// NOW YOU NEED TO SPECIFY WHICH CONFIG WHEN RUNNING KNEX COMMANDS
 
 // npx knex migrate:latest --env=development
 // npx knex migrate:latest --env=testing

@@ -7,6 +7,12 @@ beforeEach( async () => {
    await db.seed.run()
 })
 
+
+beforeAll( async()=> {
+   await db.migrate.rollback()
+   await db.migrate.latest()
+})
+
 // this is a jest hook that will run after all the tests in the file run
 afterAll( async () => {
    // close database connection before the test runner ends, to
@@ -24,7 +30,8 @@ describe("Hobbits Integration Tests", () => {
       // MIME TYPE
       expect(res.type).toBe("application/json")
       // DATA
-      expect(res.body.length).toBeGreaterThanOrEqual(4)   // data/seeds
+      expect(res.body.length).toBeGreaterThanOrEqual(4) // would allow for dynamic data/seeds to be added
+      expect(res.body[0].id).toBe(1)
       expect(res.body[0].name).toBe("sam")  // check first record
    })
 
@@ -54,4 +61,8 @@ describe("Hobbits Integration Tests", () => {
 
 
 })
+
+
+// How would you send a "header:value" pair ( like an auth token in the "Header" Insomnia tab )
+// You would use `.set("HeaderName", "HeaderValue")` on the supertest request
 

@@ -1,3 +1,5 @@
+// DEFINE SERVER AND EXPORT
+
 const express = require("express")
 const cors = require("cors")
 const hobbitsRouter = require("./hobbits/hobbits-router")
